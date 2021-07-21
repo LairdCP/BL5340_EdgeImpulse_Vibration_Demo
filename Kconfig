@@ -1,0 +1,44 @@
+# Copyright (c) 2021 Laird Connectivity
+# SPDX-License-Identifier: Apache-2.0
+
+menu "Vibration Run Demo"
+
+config APP_AXIS_X_ENABLED
+	bool "X axis monitoring/output"
+	default n
+
+config APP_AXIS_Y_ENABLED
+	bool "Y axis monitoring/output"
+	default n
+
+config APP_AXIS_Z_ENABLED
+	bool "Z axis monitoring/output"
+	default y
+
+choice
+	prompt "Output type"
+	default APP_OUTPUT_READABLE
+	help
+	  The output type for the data
+
+config APP_OUTPUT_READABLE
+	bool "Human-readable output mode"
+	help
+	  In this mode, the application will output in a human-readable
+	  format on the UART which can be used for seeing how the data
+	  is being processed.
+
+config APP_OUTPUT_DELIMITED
+	bool "Comma delimited output mode"
+	help
+	  In this mode, the application will output the data in a comma
+	  delimited format which can be used with a PC application to
+	  perform actions based on the state of the output. The output
+	  of this format is not easy to understand visually from a
+	  glance.
+
+endchoice
+
+endmenu
+
+source "Kconfig.zephyr"

@@ -1,16 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
 cmake_minimum_required(VERSION 3.13.1)
+
+# Re-direct the directory where the 'boards' directory is found from
+# $ZEPHYR_BASE to this directory.
+set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR}/../../ble_gateway_firmware)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
-
 project(example-standalone-inferencing-zephyr)
 
 include(utils/cmake/utils.cmake)
-
-# Needed for colorful output
-zephyr_compile_options(-fdiagnostics-color=always)
 
 # Use hardware acceleration for DSP and Neural Network code
 # You'll need to disable these on non-Arm cores
