@@ -273,15 +273,15 @@ void main(void)
 			}
 
 #if defined(CONFIG_APP_OUTPUT_READABLE)
-			printf("\t%d entr%s over winning minimum\r\n
-			       "\t%d entr%s over error minimum\r\n
+			printf("\t%d entr%s over winning minimum\r\n"
+			       "\t%d entr%s over error minimum\r\n"
 			       "\t%d entr%s with maximum value\r\n",
 			       entries_over_min,
 			       (entries_over_min == 1 ? "y" : "ies"),
 			       entries_over_err,
 			       (entries_over_err == 1 ? "y" : "ies"),
 			       max_dup, (max_dup == 1 ? "y" : "ies"));
-			printf("Run time:\r\n\tDSP: %dms\r\n
+			printf("Run time:\r\n\tDSP: %dms\r\n"
 			       "\tClassification: %dms\r\n",
 			       run_time_dsp, run_time_classification);
 			printf("\r\n");
